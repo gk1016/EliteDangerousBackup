@@ -34,6 +34,41 @@ You can edit these paths in the GUI and save them to config.
 
 ---
 
+
+### Optional: build a standalone EXE
+
+pip install pyinstaller
+pyinstaller --noconfirm --windowed --name "EliteDangerousBackup" elite_backup_gui.py
+
+---
+
+## Quick usage guide
+
+  Launch the app.
+  
+  Select sources (3 fields) or keep the defaults.
+  
+  Choose ZIP (single file) or Mirror.
+  
+  Turn Incremental ON (Mirror) to skip unchanged files.
+  
+  Pick a destination (USB via dropdown or Browse…).
+  
+  Click Start Backup.
+  
+  Use Theme to cycle Elite → Dark → Light (your choice is saved).
+  
+  Open Help → User Guide anytime for an in-app reference.
+
+---
+
+### License
+
+MIT — free for all Commanders.
+Fly safe, back up often, and remember: beer is technically a coolant.
+
+---
+
 ## File locations
 
 | Type | Path |
@@ -52,6 +87,8 @@ You can edit these paths in the GUI and save them to config.
 - **Python 3.10+**
 - Tkinter (included with standard Python on Windows)
 
+---
+
 ### Run from source
 
 ```powershell
@@ -61,31 +98,6 @@ python -m venv .venv
 .\.venv\Scripts\activate
 python elite_backup_gui.py
 
-### Optional: build a standalone EXE
 
-pip install pyinstaller
-pyinstaller --noconfirm --windowed --name "EliteDangerousBackup" elite_backup_gui.py
 
-Quick usage guide
-
-  Launch the app.
-  
-  Select sources (3 fields) or keep the defaults.
-  
-  Choose ZIP (single file) or Mirror.
-  
-  Turn Incremental ON (Mirror) to skip unchanged files.
-  
-  Pick a destination (USB via dropdown or Browse…).
-  
-  Click Start Backup.
-  
-  Use Theme to cycle Elite → Dark → Light (your choice is saved).
-  
-  Open Help → User Guide anytime for an in-app reference.
-
-License
-
-MIT — free for all Commanders.
-Fly safe, back up often, and remember: beer is technically a coolant.
 
