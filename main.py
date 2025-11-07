@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Elite Dangerous Backup (GUI) — v1.5 (Themes!)
-- Self-contained (stdlib only), Windows 11 friendly (Tkinter)
+Elite Dangerous Backup (GUI) — v1.5.1 (Themes fix)
 - Three themes: Elite (orange/black), Dark, Light — switch anytime (Theme button)
-- Theme saved to config.json
+- Theme saved to config.json; deep re-style applied on every theme change
 - User-configurable 3 source paths (saved to JSON config)
 - Destination: auto-detect removable drives or browse to any folder
 - Modes:
@@ -44,7 +43,7 @@ APP_NAME = "EliteBackup"
 CONFIG_DIR = os.path.join(os.environ.get("LOCALAPPDATA", os.path.expanduser("~")), APP_NAME)
 CONFIG_PATH = os.path.join(CONFIG_DIR, "config.json")
 HELP_PATH = os.path.join(CONFIG_DIR, "help.md")
-VERSION = "1.5"
+VERSION = "1.5.1"
 
 # ---------------- Default User Guide content ----------------
 HELP_DEFAULT = """# Elite Dangerous Backup — User Guide
@@ -366,11 +365,14 @@ def render_markdown(text_widget: tk.Text, md: str):
 THEMES = {
     "elite": {
         "bg": "#0b0b0b", "fg": "#ff9d00", "muted": "#c07a00",
-        "widget_bg": "#111111", "entry_bg": "#151515", "entry_fg": "#f0f0f0",
+        "widget_bg": "#111111",
+        # entries: black background
+        "entry_bg": "#000000", "entry_fg": "#f0f0f0",
         "button_bg": "#1a1a1a", "button_fg": "#ffd27a",
         "accent": "#ff9d00", "accent_fg": "#111111",
         "progress_trough": "#1a1a1a", "progress_bar": "#ff9d00",
-        "text_bg": "#0e0e0e", "text_fg": "#f5f5f5",
+        # logs: black background + amber text
+        "text_bg": "#000000", "text_fg": "#ff9d00",
         "border": "#333333", "select_bg": "#222222", "select_fg": "#ffffff",
         "menu_bg": "#111111", "menu_fg": "#ff9d00"
     },
@@ -407,16 +409,12 @@ def apply_theme(root: tk.Tk, style: ttk.Style, theme_key: str):
     select_bg = theme["select_bg"]; select_fg = theme["select_fg"]
     menu_bg = theme["menu_bg"]; menu_fg = theme["menu_fg"]
 
-    # Root background
     root.configure(bg=bg)
-
-    # Use ttk 'clam' theme as base for consistent colorability
     try:
         style.theme_use("clam")
     except Exception:
         pass
 
-    # Global defaults
     style.configure(".", background=wbg, foreground=fg)
     style.configure("TFrame", background=wbg)
     style.configure("TLabelframe", background=wbg, foreground=fg)
@@ -424,53 +422,118 @@ def apply_theme(root: tk.Tk, style: ttk.Style, theme_key: str):
     style.configure("TLabel", background=wbg, foreground=fg)
     style.configure("TButton", background=bbg, foreground=bfg, bordercolor=theme["border"])
     style.map("TButton", background=[("active", accent)], foreground=[("active", theme["accent_fg"])])
+
     style.configure("TCheckbutton", background=wbg, foreground=fg)
     style.configure("TMenubutton", background=bbg, foreground=bfg)
+
+    # Combobox
     style.configure("TCombobox", fieldbackground=ebg, foreground=efg, background=wbg, arrowcolor=fg)
-    style.map("TCombobox", fieldbackground=[("readonly", ebg)], foreground=[("readonly", efg)], background=[("readonly", wbg)])
+    style.map("TCombobox",
+              fieldbackground=[("readonly", ebg)],
+              foreground=[("readonly", efg)],
+              background=[("readonly", wbg)])
+
+    # Entry (ttk.Entry)
+    style.configure("TEntry", fieldbackground=ebg, foreground=efg, background=wbg)
+    try:
+        style.map("TEntry", foreground=[("focus", efg)], fieldbackground=[("focus", ebg)])
+    except Exception:
+        pass
+
     style.configure("TProgressbar", troughcolor=trough, background=pbar, bordercolor=trough, lightcolor=pbar, darkcolor=pbar)
 
-    # Menu colors (tk-only)
+    # tk.Menu colors
     root.option_add("*Menu.background", menu_bg)
     root.option_add("*Menu.foreground", menu_fg)
     root.option_add("*Menu.activeBackground", accent)
     root.option_add("*Menu.activeForeground", theme["accent_fg"])
 
-    # For classic tk widgets we create helpers:
+    # Make ttk.Combobox dropdown list honor theme (Tk Listbox under the hood)
+    root.option_add("*TCombobox*Listbox.background", theme["entry_bg"])
+    root.option_add("*TCombobox*Listbox.foreground", theme["entry_fg"])
+    root.option_add("*TCombobox*Listbox.selectBackground", theme["select_bg"])
+    root.option_add("*TCombobox*Listbox.selectForeground", theme["select_fg"])
+
+    # --- Classic tk widgets helpers ---
     def style_text_widget(widget: tk.Text):
-        widget.configure(bg=tbg, fg=tfg, insertbackground=fg, selectbackground=select_bg, selectforeground=select_fg, highlightthickness=0)
+        """Apply themed colors to Text widgets like the Log box."""
+        try:
+            widget.configure(
+                bg=tbg,
+                fg=tfg,
+                insertbackground=tfg,  # caret color
+                selectbackground=select_bg,
+                selectforeground=select_fg,
+                highlightthickness=1,
+                highlightbackground=theme["border"],
+                highlightcolor=accent,
+                relief="flat",
+            )
+        except tk.TclError:
+            # If the widget doesn't accept an option, ignore gracefully
+            pass
 
     def style_entry_widget(widget: tk.Entry):
-        widget.configure(bg=ebg, fg=efg, insertbackground=efg, highlightthickness=1, highlightbackground=theme["border"], highlightcolor=accent, selectbackground=select_bg, selectforeground=select_fg)
+        """Apply themed colors to classic Entry widgets (NOT ttk.Entry)."""
+        try:
+            widget.configure(
+                bg=ebg,
+                fg=efg,
+                insertbackground=efg,
+                selectbackground=select_bg,
+                selectforeground=select_fg,
+                highlightthickness=1,
+                highlightbackground=theme["border"],
+                highlightcolor=accent,
+                relief="flat",
+            )
+        except tk.TclError:
+            pass
 
     # store for reuse
     root._theme_helpers = {"style_text": style_text_widget, "style_entry": style_entry_widget}
 
-def restyle_children(root: tk.Misc):
-    """Apply theme to dynamic widgets like Text/Entry created after theme switch."""
+    # Immediately restyle existing classic widgets (e.g., log Text)
+    restyle_everything(root)
+
+def _iter_widgets(widget):
+    """Yield widget and all descendants (depth-first)."""
+    yield widget
+    for child in widget.winfo_children():
+        yield from _iter_widgets(child)
+
+def restyle_everything(root: tk.Misc):
+    """
+    Re-apply theme to *classic* Tk widgets only (Text, Entry).
+    ttk widgets are styled via ttk.Style and should not get tk options like bg/fg.
+    """
     helpers = getattr(root, "_theme_helpers", {})
     style_text = helpers.get("style_text")
     style_entry = helpers.get("style_entry")
-    for w in root.winfo_children():
-        # Recurse
-        restyle_children(w)
-        # Per-type tweaks
-        if isinstance(w, tk.Text) and style_text:
-            style_text(w)
-        if isinstance(w, tk.Entry) and style_entry:
-            style_entry(w)
+
+    for w in _iter_widgets(root):
+        try:
+            klass = w.winfo_class()
+        except tk.TclError:
+            continue
+
+        # Classic Text widget
+        if klass == "Text" and style_text:
+            try:
+                style_text(w)
+            except tk.TclError:
+                pass
+
+        # Classic Entry widget (not ttk::entry)
+        elif klass == "Entry" and style_entry:
+            try:
+                style_entry(w)
+            except tk.TclError:
+                pass
 
 def apply_theme_to_toplevel(win: tk.Toplevel):
     """Apply theme to help window after creation."""
-    root = win.master
-    style_text = getattr(root, "_theme_helpers", {}).get("style_text")
-    for w in win.winfo_children():
-        if isinstance(w, tk.Text) and style_text:
-            style_text(w)
-        # Recurse for frames
-        for c in w.winfo_children():
-            if isinstance(c, tk.Text) and style_text:
-                style_text(c)
+    restyle_everything(win)
 
 # ---------------- Backup worker ----------------
 class BackupWorker(threading.Thread):
@@ -701,7 +764,7 @@ class App(tk.Tk):
         frm.grid_columnconfigure(4, weight=1)
 
         # Finish initial theming on widgets that Tk won't auto-style
-        restyle_children(self)
+        restyle_everything(self)
 
     def _add_source_row(self, parent, row, label, var):
         ttk.Label(parent, text=label).grid(row=row, column=0, sticky="w", padx=10, pady=4)
@@ -724,7 +787,7 @@ class App(tk.Tk):
         save_config(cfg)
         # Apply
         apply_theme(self, self.style, new_theme)
-        restyle_children(self)
+        restyle_everything(self)
         self._log(f"Theme set to: {new_theme.capitalize()}")
 
     # ----- Mode logic -----
