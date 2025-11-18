@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+
+  <Package
+      Name="Elite Dangerous Backup"
+      Version="1.6.0"
+      Manufacturer="YourName"
+      UpgradeCode="{F813279B-AD98-4DAB-9CA1-2065148C546D}"
+      Language="1033"
+      InstallerVersion="500"
+      Compressed="yes"
+      Scope="perUser">
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+
+    <!-- Icon used by Apps & Features and shortcuts -->
+    <Icon Id="AppIcon" SourceFile="..\assets\elite.ico" />
+    <Property Id="ARPPRODUCTICON" Value="AppIcon" />
+
+    <!-- INSTALLDIR under %LOCALAPPDATA% -->
+    <StandardDirectory Id="LocalAppDataFolder">
+      <Directory Id="INSTALLDIR" Name="EliteDangerousBackup">
+        <!-- Main app files component (EXE declared here) -->
+        <Component Id="EDB_Files" Guid="{3BF3B8B4-C243-4E07-A39B-DAAE78B7A2C5}">
+          <File Id="EDB_EXE"
+                Source="$(var.SourceDir)\EliteDangerousBackup.exe"
+                KeyPath="yes" />
+          <!-- The rest of the files come from FilesFragment.wxs via ComponentGroupRef below -->
+        </Component>
+      </Directory>
+    </StandardDirectory>
+
+    <!-- Start Menu folder and shortcut -->
+    <StandardDirectory Id="ProgramMenuFolder">
+      <Directory Id="AppShortcutDir" Name="Elite Dangerous Backup">
+        <Component Id="StartMenuShortcut" Guid="{72385CBA-DD52-4DA8-8B4D-4A1F21785E23}">
+          <Shortcut Id="StartMenuShortcutId"
+                    Name="Elite Dangerous Backup"
+                    Description="Back up your Elite Dangerous saves/configs"
+                    Target="[INSTALLDIR]EliteDangerousBackup.exe"
+                    Icon="AppIcon"
+                    WorkingDirectory="INSTALLDIR" />
+          <RemoveFolder Id="RemoveStartMenuDir"
+                        Directory="AppShortcutDir"
+                        On="uninstall" />
+          <RegistryValue Root="HKCU"
+                         Key="Software\EliteBackup"
+                         Name="installed"
+                         Type="integer"
+                         Value="1"
+                         KeyPath="yes" />
+        </Component>
+      </Directory>
+    </StandardDirectory>
+
+    <!-- Desktop folder and shortcut -->
+    <StandardDirectory Id="DesktopFolder">
+      <Component Id="DesktopShortcut" Guid="{2C1AFA19-B179-4C38-8A0B-4EBEA86AB202}">
+        <Shortcut Id="DesktopShortcutId"
+                  Name="Elite Dangerous Backup"
+                  Target="[INSTALLDIR]EliteDangerousBackup.exe"
+                  Icon="AppIcon"
+                  WorkingDirectory="INSTALLDIR" />
+        <RegistryValue Root="HKCU"
+                       Key="Software\EliteBackup"
+                       Name="desktop"
+                       Type="integer"
+                       Value="1"
+                       KeyPath="yes" />
+      </Component>
+    </StandardDirectory>
+
+    <!-- Feature tree -->
+    <Feature Id="MainFeature" Title="Elite Dangerous Backup" Level="1">
+      <ComponentRef Id="EDB_Files" />
+      <ComponentGroupRef Id="EDB_OtherFiles" />
+      <ComponentRef Id="StartMenuShortcut" />
+      <ComponentRef Id="DesktopShortcut" />
+    </Feature>
+
+  </Package>
+</Wix>
