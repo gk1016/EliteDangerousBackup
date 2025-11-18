@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Fragment>
+    <ComponentGroup Id="EDB_OtherFiles">
+      <Component Id="EDB__internal_api_ms_win_core_console_l1_1_0_dll" Directory="INSTALLDIR" Guid="{7A23D680-3434-4F9C-BB06-C259254CE944}">
+        <File Id="EDB__internal_api_ms_win_core_console_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-core-console-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_core_datetime_l1_1_0_dll" Directory="INSTALLDIR" Guid="{348CDFC0-C38A-4553-B256-B77E5EF47928}">
+        <File Id="EDB__internal_api_ms_win_core_datetime_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-core-datetime-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_core_debug_l1_1_0_dll" Directory="INSTALLDIR" Guid="{EBB23A13-8146-4768-97D0-76FA70439220}">
+        <File Id="EDB__internal_api_ms_win_core_debug_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-core-debug-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_core_errorhandling_l1_1_0_dll" Directory="INSTALLDIR" Guid="{A1D9A6C8-6F3A-49FE-9A08-A8F8CD16DCE7}">
+        <File Id="EDB__internal_api_ms_win_core_errorhandling_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-core-errorhandling-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_core_fibers_l1_1_0_dll" Directory="INSTALLDIR" Guid="{93EE6CD8-EB3B-4DF9-BCAD-6856A1E51AFC}">
+        <File Id="EDB__internal_api_ms_win_core_fibers_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-core-fibers-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_core_file_l1_1_0_dll" Directory="INSTALLDIR" Guid="{35D2F1D9-1637-4FD5-95E7-D116A2E1BBF5}">
+        <File Id="EDB__internal_api_ms_win_core_file_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-core-file-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_core_file_l1_2_0_dll" Directory="INSTALLDIR" Guid="{5FC85EF8-B249-4934-8CF5-740876449FD8}">
+        <File Id="EDB__internal_api_ms_win_core_file_l1_2_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-core-file-l1-2-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_core_file_l2_1_0_dll" Directory="INSTALLDIR" Guid="{E2F87626-71CA-401A-B16B-A09D1CBE9994}">
+        <File Id="EDB__internal_api_ms_win_core_file_l2_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-core-file-l2-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_core_handle_l1_1_0_dll" Directory="INSTALLDIR" Guid="{CC6D8FBD-D093-4E2F-9D32-2229320A2F8F}">
+        <File Id="EDB__internal_api_ms_win_core_handle_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-core-handle-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_core_heap_l1_1_0_dll" Directory="INSTALLDIR" Guid="{B2C27636-79ED-4A3A-A22B-3FCA3FFF8287}">
+        <File Id="EDB__internal_api_ms_win_core_heap_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-core-heap-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_core_interlocked_l1_1_0_dll" Directory="INSTALLDIR" Guid="{6AD452B0-F699-4A02-8131-BE9CD67D366E}">
+        <File Id="EDB__internal_api_ms_win_core_interlocked_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-core-interlocked-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_core_libraryloader_l1_1_0_dll" Directory="INSTALLDIR" Guid="{FAB46733-A6DB-4491-8CCB-8C71113BFB83}">
+        <File Id="EDB__internal_api_ms_win_core_libraryloader_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-core-libraryloader-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_core_localization_l1_2_0_dll" Directory="INSTALLDIR" Guid="{50023D14-3CF9-4510-AF66-90168237C0C6}">
+        <File Id="EDB__internal_api_ms_win_core_localization_l1_2_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-core-localization-l1-2-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_core_memory_l1_1_0_dll" Directory="INSTALLDIR" Guid="{A660D015-1DE7-4366-AD70-523B830BA422}">
+        <File Id="EDB__internal_api_ms_win_core_memory_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-core-memory-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_core_namedpipe_l1_1_0_dll" Directory="INSTALLDIR" Guid="{791738AE-FF1F-4E5E-898E-2B74875D12A6}">
+        <File Id="EDB__internal_api_ms_win_core_namedpipe_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-core-namedpipe-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_core_processenvironment_l1_1_0_dll" Directory="INSTALLDIR" Guid="{86601459-5709-4D20-BFDC-A79FC7635444}">
+        <File Id="EDB__internal_api_ms_win_core_processenvironment_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-core-processenvironment-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_core_processthreads_l1_1_0_dll" Directory="INSTALLDIR" Guid="{C38E4C88-AC53-4C7B-AA34-4061D891D44E}">
+        <File Id="EDB__internal_api_ms_win_core_processthreads_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-core-processthreads-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_core_processthreads_l1_1_1_dll" Directory="INSTALLDIR" Guid="{4020FBFF-B6F9-4A05-AA3B-99E5EC32F891}">
+        <File Id="EDB__internal_api_ms_win_core_processthreads_l1_1_1_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-core-processthreads-l1-1-1.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_core_profile_l1_1_0_dll" Directory="INSTALLDIR" Guid="{03666E44-3CE5-4E0F-8044-8966C7335B8F}">
+        <File Id="EDB__internal_api_ms_win_core_profile_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-core-profile-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_core_rtlsupport_l1_1_0_dll" Directory="INSTALLDIR" Guid="{D5C1BBB0-69AC-4B21-A189-F58E76EA642B}">
+        <File Id="EDB__internal_api_ms_win_core_rtlsupport_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-core-rtlsupport-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_core_string_l1_1_0_dll" Directory="INSTALLDIR" Guid="{050CC170-DC3A-42B2-B3CC-1B78176D2507}">
+        <File Id="EDB__internal_api_ms_win_core_string_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-core-string-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_core_synch_l1_1_0_dll" Directory="INSTALLDIR" Guid="{7FD21743-F46C-4AF1-B880-D9F384D600D3}">
+        <File Id="EDB__internal_api_ms_win_core_synch_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-core-synch-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_core_synch_l1_2_0_dll" Directory="INSTALLDIR" Guid="{86B6FED7-7909-493B-BCB4-8E609A6459CC}">
+        <File Id="EDB__internal_api_ms_win_core_synch_l1_2_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-core-synch-l1-2-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_core_sysinfo_l1_1_0_dll" Directory="INSTALLDIR" Guid="{6890C7DC-831D-4680-808B-0C54F7DB8E4C}">
+        <File Id="EDB__internal_api_ms_win_core_sysinfo_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-core-sysinfo-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_core_timezone_l1_1_0_dll" Directory="INSTALLDIR" Guid="{6DF7A816-B345-419E-91BE-3C55C1589855}">
+        <File Id="EDB__internal_api_ms_win_core_timezone_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-core-timezone-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_core_util_l1_1_0_dll" Directory="INSTALLDIR" Guid="{BFA84868-612F-4F58-B823-BC2EFD4F48F4}">
+        <File Id="EDB__internal_api_ms_win_core_util_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-core-util-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_crt_conio_l1_1_0_dll" Directory="INSTALLDIR" Guid="{67283654-BF37-413A-8D7E-DEA070CC4329}">
+        <File Id="EDB__internal_api_ms_win_crt_conio_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-crt-conio-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_crt_convert_l1_1_0_dll" Directory="INSTALLDIR" Guid="{BF5C0969-0542-487E-BAEB-1B597A7734A2}">
+        <File Id="EDB__internal_api_ms_win_crt_convert_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-crt-convert-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_crt_environment_l1_1_0_dll" Directory="INSTALLDIR" Guid="{8C4315B9-656E-45A3-82E1-A480239C75FE}">
+        <File Id="EDB__internal_api_ms_win_crt_environment_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-crt-environment-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_crt_filesystem_l1_1_0_dll" Directory="INSTALLDIR" Guid="{22FE8C98-BF8D-431B-8009-DDB7F75E1295}">
+        <File Id="EDB__internal_api_ms_win_crt_filesystem_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-crt-filesystem-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_crt_heap_l1_1_0_dll" Directory="INSTALLDIR" Guid="{C3389483-AEB2-4918-9595-A9100712E957}">
+        <File Id="EDB__internal_api_ms_win_crt_heap_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-crt-heap-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_crt_locale_l1_1_0_dll" Directory="INSTALLDIR" Guid="{891B3D22-7EA4-4CF1-8400-5F501EF0538D}">
+        <File Id="EDB__internal_api_ms_win_crt_locale_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-crt-locale-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_crt_math_l1_1_0_dll" Directory="INSTALLDIR" Guid="{30F1AF6C-ACB4-4E36-B284-8656453D2C0A}">
+        <File Id="EDB__internal_api_ms_win_crt_math_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-crt-math-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_crt_process_l1_1_0_dll" Directory="INSTALLDIR" Guid="{41429D0D-9AA0-4F27-AB95-1DABD79659B7}">
+        <File Id="EDB__internal_api_ms_win_crt_process_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-crt-process-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_crt_runtime_l1_1_0_dll" Directory="INSTALLDIR" Guid="{F84781E4-DF6E-4EE9-B5F7-1FF3B3E4A3A8}">
+        <File Id="EDB__internal_api_ms_win_crt_runtime_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-crt-runtime-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_crt_stdio_l1_1_0_dll" Directory="INSTALLDIR" Guid="{A3C08237-6B8D-4282-80DC-6C83C58B4294}">
+        <File Id="EDB__internal_api_ms_win_crt_stdio_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-crt-stdio-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_crt_string_l1_1_0_dll" Directory="INSTALLDIR" Guid="{1055D85D-8B7D-4E13-A034-9447183D5092}">
+        <File Id="EDB__internal_api_ms_win_crt_string_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-crt-string-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_crt_time_l1_1_0_dll" Directory="INSTALLDIR" Guid="{ADC5E8AB-4E56-46E7-9B0B-E7D3EA146688}">
+        <File Id="EDB__internal_api_ms_win_crt_time_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-crt-time-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_api_ms_win_crt_utility_l1_1_0_dll" Directory="INSTALLDIR" Guid="{9BE34FCF-3A83-4EE5-A8E0-F92E6DDCECC4}">
+        <File Id="EDB__internal_api_ms_win_crt_utility_l1_1_0_dll_file" Source="$(var.SourceDir)\_internal\api-ms-win-crt-utility-l1-1-0.dll" />
+      </Component>
+      <Component Id="EDB__internal_base_library_zip" Directory="INSTALLDIR" Guid="{39513DDC-6EB6-4D03-8A73-CE5B9F733D30}">
+        <File Id="EDB__internal_base_library_zip_file" Source="$(var.SourceDir)\_internal\base_library.zip" />
+      </Component>
+      <Component Id="EDB__internal_libcrypto_3_dll" Directory="INSTALLDIR" Guid="{279519B2-A4A8-4412-9006-0FFDDE9D5DE7}">
+        <File Id="EDB__internal_libcrypto_3_dll_file" Source="$(var.SourceDir)\_internal\libcrypto-3.dll" />
+      </Component>
+      <Component Id="EDB__internal_python312_dll" Directory="INSTALLDIR" Guid="{C35C6037-622D-45C1-8562-1E9B5C91945A}">
+        <File Id="EDB__internal_python312_dll_file" Source="$(var.SourceDir)\_internal\python312.dll" />
+      </Component>
+      <Component Id="EDB__internal_select_pyd" Directory="INSTALLDIR" Guid="{566CA6F8-6C84-4B46-AB90-6FCD54222D88}">
+        <File Id="EDB__internal_select_pyd_file" Source="$(var.SourceDir)\_internal\select.pyd" />
+      </Component>
+      <Component Id="EDB__internal_ucrtbase_dll" Directory="INSTALLDIR" Guid="{7AD85393-D268-4D6C-B76F-389DED743A2B}">
+        <File Id="EDB__internal_ucrtbase_dll_file" Source="$(var.SourceDir)\_internal\ucrtbase.dll" />
+      </Component>
+      <Component Id="EDB__internal_unicodedata_pyd" Directory="INSTALLDIR" Guid="{F9BBF3E5-08BB-41EE-ACCD-A20B7E13F792}">
+        <File Id="EDB__internal_unicodedata_pyd_file" Source="$(var.SourceDir)\_internal\unicodedata.pyd" />
+      </Component>
+      <Component Id="EDB__internal_VCRUNTIME140_dll" Directory="INSTALLDIR" Guid="{32301F97-0E2E-4CED-9C1C-F341ADAB57B0}">
+        <File Id="EDB__internal_VCRUNTIME140_dll_file" Source="$(var.SourceDir)\_internal\VCRUNTIME140.dll" />
+      </Component>
+      <Component Id="EDB__internal__bz2_pyd" Directory="INSTALLDIR" Guid="{AD4889DE-789B-4937-9EFF-03FFE82CEB72}">
+        <File Id="EDB__internal__bz2_pyd_file" Source="$(var.SourceDir)\_internal\_bz2.pyd" />
+      </Component>
+      <Component Id="EDB__internal__decimal_pyd" Directory="INSTALLDIR" Guid="{896E8B69-4797-46D4-BF41-2F77F834D233}">
+        <File Id="EDB__internal__decimal_pyd_file" Source="$(var.SourceDir)\_internal\_decimal.pyd" />
+      </Component>
+      <Component Id="EDB__internal__hashlib_pyd" Directory="INSTALLDIR" Guid="{966A5F96-95E4-4938-B525-B2F8B21F572F}">
+        <File Id="EDB__internal__hashlib_pyd_file" Source="$(var.SourceDir)\_internal\_hashlib.pyd" />
+      </Component>
+      <Component Id="EDB__internal__lzma_pyd" Directory="INSTALLDIR" Guid="{388AAF71-C02D-4197-B6E9-1D9F3D5A4670}">
+        <File Id="EDB__internal__lzma_pyd_file" Source="$(var.SourceDir)\_internal\_lzma.pyd" />
+      </Component>
+      <Component Id="EDB__internal__socket_pyd" Directory="INSTALLDIR" Guid="{D6026401-91D9-4CCB-8110-3672C4666995}">
+        <File Id="EDB__internal__socket_pyd_file" Source="$(var.SourceDir)\_internal\_socket.pyd" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>
